@@ -1,0 +1,36 @@
+<mat-accordion class="product-accordion">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        @if (product.image_url) {
+          <img [src]="product.image_url" alt="{{ product.product_name }}" class="product-img" />
+        }
+        <span class="title">{{ product.product_name || 'Unnamed Product' }}</span>
+      </mat-panel-title>
+      <mat-panel-description>
+        NutriScore:
+        <span class="nutriscore nutriscore-{{ product.nutriscore_grade }}">
+          {{ product.nutriscore_grade?.toUpperCase() || 'N/A' }}
+        </span>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div class="product-details">
+      <p><strong>Code:</strong> {{ product.code }}</p>
+      @if (product.brands) {
+        <p><strong>Brand:</strong> {{ product.brands }}</p>
+      }
+      @if (product.categories) {
+        <p><strong>Categories:</strong> {{ product.categories }}</p>
+      }
+      @if (product.ingredients_text) {
+        <p><strong>Ingredients:</strong> {{ product.ingredients_text }}</p>
+      }
+    </div>
+
+    <mat-action-row>
+      <button mat-button color="primary">View Details</button>
+      <button mat-button color="accent">Compare</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
