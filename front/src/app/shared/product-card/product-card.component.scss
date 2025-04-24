@@ -1,0 +1,38 @@
+.product-accordion {
+  width: 100%;
+  margin: 0 auto;
+
+  .product-img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-right: 12px;
+  }
+
+  .title {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .nutriscore {
+    margin-left: 8px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .nutriscore-a { background-color: #4caf50; color: white; }
+  .nutriscore-b { background-color: #8bc34a; color: white; }
+  .nutriscore-c { background-color: #ffeb3b; color: black; }
+  .nutriscore-d { background-color: #ff9800; color: white; }
+  .nutriscore-e { background-color: #f44336; color: white; }
+
+  .product-details {
+    p {
+      margin: 4px 0;
+      line-height: 1.4;
+    }
+  }
+}

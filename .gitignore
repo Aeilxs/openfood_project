@@ -1,0 +1,25 @@
+.DS_Store
+
+# Logs
+logs/
+*.log
+
+# CSV et datasets volumineux
+*.csv
+*.csv.gz
+en.openfoodfacts.org.products.csv
+en.openfoodfacts.org.products.csv.gz
+
+# OS files
+*.swp
+*.swo
+
+# Environment
+.env
+.env.*.local
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace

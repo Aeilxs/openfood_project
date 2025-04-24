@@ -1,0 +1,27 @@
+<mat-toolbar color="primary">
+  <span>OpenFood Project</span>
+  <span class="spacer"></span>
+  <nav>
+    <a mat-button routerLink="/">Home</a>
+    <a mat-button routerLink="/compare">Compare</a>
+    <a mat-button routerLink="/alternatives">Alternatives</a>
+    <a mat-button routerLink="/about">About</a>
+  </nav>
+</mat-toolbar>
+
+@if (!showSearchBar()) {
+  <app-search-bar
+    [searching]="isSearching"
+    (search)="onSearch($event)"
+  ></app-search-bar>
+}
+
+
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
+
+<footer>
+  <p>&copy; 2025 OpenFood Project</p>
+</footer>

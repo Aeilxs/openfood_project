@@ -1,0 +1,11 @@
+<h2>Compare Products</h2>
+
+<div class="cards-container">
+  @if (products.length > 0) {
+    @for (product of products; track product.code) {
+      <app-product-card [product]="product"></app-product-card>
+    }
+  } @else {
+    <p>No products to compare.</p>
+  }
+</div>

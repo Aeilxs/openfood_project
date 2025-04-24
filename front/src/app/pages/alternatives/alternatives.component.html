@@ -1,0 +1,11 @@
+<h2>Healthy Alternatives</h2>
+
+<div class="cards-container">
+  @if (products.length > 0) {
+    @for (product of products; track product.code) {
+      <app-product-card [product]="product"></app-product-card>
+    }
+  } @else {
+    <p>No alternatives available.</p>
+  }
+</div>
