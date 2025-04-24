@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "85e1e43b-29c4-4d7d-ab08-64efcf9e2e46",
+		"name": "OpenFoodFacts API (Local)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26105578",
+		"_collection_link": "https://contract-central.postman.co/workspace/angular_isen~b48ab08a-383e-40d9-9ed6-3ba0d4dbd566/collection/26105578-85e1e43b-29c4-4d7d-ab08-64efcf9e2e46?action=share&source=collection_link&creator=26105578"
+	},
+	"item": [
+		{
+			"name": "Search: poulet",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/products?q=poulet",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "poulet"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search: brand = Carrefour",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/products?brand=Carrefour",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products"
+					],
+					"query": [
+						{
+							"key": "brand",
+							"value": "Carrefour"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search: nutriscore = a",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/products?nutriscore=a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products"
+					],
+					"query": [
+						{
+							"key": "nutriscore",
+							"value": "a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search: kcal range 100-500",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/products?minKcal=100&maxKcal=500",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products"
+					],
+					"query": [
+						{
+							"key": "minKcal",
+							"value": "100"
+						},
+						{
+							"key": "maxKcal",
+							"value": "500"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Paginated: page 2, size 10",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/products?page=2&pageSize=100",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						},
+						{
+							"key": "pageSize",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get by code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/products/00000002",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products",
+						"00000002"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

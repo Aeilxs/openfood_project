@@ -16,7 +16,7 @@ FRONT_PID=$!
 cd ..
 
 cd server
-npm run start >../logs/server.log 2>&1 &
+npm run start:dev >../logs/server.log 2>&1 &
 SERVER_PID=$!
 cd ..
 
