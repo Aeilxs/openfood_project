@@ -9,7 +9,6 @@ mkdir logs
 touch logs/front.log
 touch logs/server.log
 
-# Start Angular (frontend)
 cd front
 npx ng serve >../logs/front.log 2>&1 &
 FRONT_PID=$!

@@ -1,44 +1,39 @@
 export interface Product {
-    code: string;
-
-    product_name: string;
-    brands?: string;
-    categories?: string;
-    image_url?: string;
-
-    nutriments?: {
-        energy_kcal?: number;
-        fat?: number;
-        saturated_fat?: number;
-        carbohydrates?: number;
-        sugars?: number;
-        fiber?: number;
-        proteins?: number;
-        sodium?: number;
-    };
-
-    nutriscore_grade?: string;
-    ingredients_text?: string;
-    labels?: string;
-    packaging?: string;
+  code: string;
+  product_name: string;
+  image_url?: string;
+  brands?: string;
+  categories?: string[];
+  nova_group?: number;
+  nutrition_grade_fr?: string;
+  eco_score?: string;
+  ingredients_text?: string;
+  quantity?: string;
 }
 
 export interface SearchFilters {
-    search_terms: string;
-    brands?: string[];
-    categories?: string[];
-    labels?: string[];
-    countries?: string[];
-    nutriments?: string[];
-    page?: number;
-    page_size?: number;
+  q?: string;
+  brand?: string;
+  category?: string;
+  nutriscore?: string;
+  minKcal?: string;
+  maxKcal?: string;
+  page?: string;
+  pageSize?: string;
+}
+
+export interface ProductSearchResponse {
+  total: number;
+  page: number;
+  pageSize: number;
+  data: Product[];
 }
 
 export enum LogLevel {
-    TRACE = 0,
-    DEBUG = 1,
-    INFO = 2,
-    WARN = 3,
-    ERROR = 4,
-    OFF = 5,
+  TRACE = 0,
+  DEBUG = 1,
+  INFO = 2,
+  WARN = 3,
+  ERROR = 4,
+  OFF = 5,
 }
