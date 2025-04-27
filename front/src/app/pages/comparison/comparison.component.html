@@ -1,1 +1,36 @@
-<p>comparison works!</p>
+<main class="comparison">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Attribute</th>
+          @for (product of comparison$ | async; track product.code) {
+            <th>
+              <div class="product-header">
+                <button class="remove-btn" (click)="removeProduct(product.code)">✕</button>
+                <img class="product-image" [src]="product.image_url" [alt]="product.product_name || 'Product'" />
+                <div class="product-name">{{ product.product_name }}</div>
+              </div>
+            </th>
+          }
+        </tr>
+      </thead>
+  
+      <tbody>
+        @for (field of fields$ | async; track field) {
+          <tr>
+            <th class="field-label">{{ formatLabel(field) }}</th>
+            @for (product of comparison$ | async; track product.code) {
+              <td>
+                @if (hasValue(product, field)) {
+                  {{ getValue(product, field) }}
+                } @else {
+                  —
+                }
+              </td>
+            }
+          </tr>
+        }
+      </tbody>
+    </table>
+  </main>
+  

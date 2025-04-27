@@ -30,6 +30,10 @@ export class ProductService {
   /** flux public : true ⇒ requête en cours */
   readonly loader$ = this._loading$.asObservable();
 
+  /* ---------- comparison stream ---------- */
+  private readonly _comparisonList$ = new BehaviorSubject<Product[]>([]);
+  readonly comparisonList$ = this._comparisonList$.asObservable();
+
   private _lastCriteria: ProductSearchCriteria = {};
 
   constructor(
@@ -51,7 +55,6 @@ export class ProductService {
           this.logger.debug('Products search success', res);
 
           if (append) {
-            /* évite les doublons éventuels */
             const current = this._products$.value;
             const codes = new Set(current.map((p) => p.code));
             const uniqueNew = res.data.filter((p) => !codes.has(p.code));
@@ -87,11 +90,31 @@ export class ProductService {
     this._products$.next([]);
   }
 
+  /* ---------- comparison methods ---------- */
+  addToComparison(product: Product): void {
+    const current = this._comparisonList$.value;
+    if (!current.some((p) => p.code === product.code)) {
+      this._comparisonList$.next([...current, product]);
+    }
+  }
+
+  removeFromComparison(code: string): void {
+    this._comparisonList$.next(
+      this._comparisonList$.value.filter((p) => p.code !== code)
+    );
+  }
+
+  clearComparison(): void {
+    this._comparisonList$.next([]);
+  }
+
   /* ---------- utils ---------- */
   private buildHttpParams(criteria: ProductSearchCriteria): HttpParams {
     let params = new HttpParams();
     Object.entries(criteria).forEach(([k, v]) => {
-      if (v != null && v !== '') params = params.set(k, String(v));
+      if (v != null && v !== '') {
+        params = params.set(k, String(v));
+      }
     });
     return params;
   }

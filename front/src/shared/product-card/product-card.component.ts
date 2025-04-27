@@ -23,7 +23,7 @@ export class ProductCardComponent {
   ) {}
 
   addToComparison() {
-    // this.productService.addToCompare(this.product);
+    this.productService.addToComparison(this.product);
   }
 
   openDetails() {
