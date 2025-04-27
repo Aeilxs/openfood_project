@@ -1,0 +1,87 @@
+<mat-card class="product-card" appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>{{ product.product_name || 'Unknown product' }}</mat-card-title>
+    <mat-card-subtitle>{{ product.brands || 'Unknown brand' }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <img
+    mat-card-image
+    [src]="product.image_url || 'https://cdn-icons-png.flaticon.com/512/3875/3875172.png'"
+    alt="Product image"
+  />
+
+  <mat-card-content>
+    <div class="nutriscore">
+      Nutriscore:
+      <span [ngClass]="'nutriscore-' + (product.nutrition_grade_fr?.toLowerCase() || 'unknown')">
+        {{ product.nutrition_grade_fr?.toUpperCase() || 'N/A' }}
+      </span>
+    </div>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="addToComparison()">Compare</button>
+    <button mat-stroked-button color="accent" (click)="openDetails()">Details</button>
+  </mat-card-actions>
+</mat-card>
+
+<!-- DIALOG TEMPLATE -->
+<ng-template #detailsModal>
+  <div class="modal-container">
+    <h2>{{ product.product_name || 'Unknown Product' }}</h2>
+
+    <img
+      [src]="product.image_url || 'https://cdn-icons-png.flaticon.com/512/3875/3875172.png'"
+      alt="Product Image"
+      class="product-image"
+    />
+
+    <div class="product-info">
+
+      @if (product.brands) {
+        <p><strong>Brand:</strong> {{ product.brands }}</p>
+      }
+
+      @if (product.categories) {
+        <p><strong>Categories:</strong> {{ product.categories }}</p>
+      }
+
+      @if (product.labels) {
+        <p><strong>Labels:</strong> {{ product.labels }}</p>
+      }
+
+      @if (product.nutrition_grade_fr) {
+        <p><strong>Nutriscore:</strong> {{ product.nutrition_grade_fr.toUpperCase() }}</p>
+      }
+
+      @if (product.nova_group != null && product.nova_group !== -1) {
+        <p><strong>Nova group:</strong> {{ product.nova_group }}</p>
+      }
+
+      @if (product.eco_score) {
+        <p><strong>Eco-score:</strong> {{ product.eco_score }}</p>
+      }
+
+      @if (product.quantity) {
+        <p><strong>Quantity:</strong> {{ product.quantity }}</p>
+      }
+
+      @if (product.energy_kcal != null && product.energy_kcal !== -1) {
+        <p><strong>Energy (kcal):</strong> {{ product.energy_kcal }}</p>
+      }
+
+      @if (product.sodium != null && product.sodium !== -1) {
+        <p><strong>Sodium (g):</strong> {{ product.sodium }}</p>
+      }
+
+      @if (product.ingredients_text) {
+        <p><strong>Ingredients:</strong> {{ product.ingredients_text }}</p>
+      }
+
+    </div>
+
+    <div class="modal-actions">
+      <button mat-raised-button mat-dialog-close color="primary">Close</button>
+    </div>
+  </div>
+</ng-template>

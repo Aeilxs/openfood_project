@@ -16,6 +16,17 @@ export class AppController {
     @Query('page') page?: string,
     @Query('pageSize') pageSize?: string,
   ) {
+    console.log('Querying products with the following parameters:', {
+      q,
+      brand,
+      category,
+      nutriscore,
+      minKcal,
+      maxKcal,
+      page,
+      pageSize,
+    });
+
     return this.appService.queryProducts({
       q,
       brand,
