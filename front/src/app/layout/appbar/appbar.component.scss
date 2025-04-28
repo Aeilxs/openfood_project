@@ -3,5 +3,13 @@
   }
 
 .logo {
-  cursor: pointer;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo-img {
+  padding-top: 20%;
+  height: 100px;
+  width: auto;
 }
