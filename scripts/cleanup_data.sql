@@ -1,12 +1,11 @@
--- ==============================================
--- OpenFoodFacts - Safe Cleanup Script
--- ==============================================
+-- fyi: we don't use really the validity flag in the database, but it might be useful
+-- for some queries, and it is a good practice to have it
 
 -- 0. Add a validity flag
 ALTER TABLE products
 ADD COLUMN is_valid BOOLEAN DEFAULT 1;
 
--- 1. Flag blatantly invalid or troll entries
+-- 1. Flag invalid or troll entries
 UPDATE products
 SET is_valid = 0
 WHERE energy_kcal >= 10000

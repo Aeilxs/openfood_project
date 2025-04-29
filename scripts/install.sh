@@ -1,21 +1,12 @@
 #!/bin/bash
 
-chmod u+x scripts/build_db.sh
-chmod u+x scripts/uninstall.sh
+# used by the container to install the database and backend dependencies
 
-# install frontend
-cd front || exit 1
-echo "[INFO] Installing frontend dependencies..."
-npm install
-cd ..
-
-# install backend
 cd server || exit 1
 echo "[INFO] Installing backend dependencies..."
 npm install
-cd ..
+cd .. || exit 1
 
-# install database
 echo "[INFO] Installing database..."
 ./scripts/build_db.sh
 

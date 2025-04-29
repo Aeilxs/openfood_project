@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Was useful for debugging, but not needed anymore
+
 DB="server/products.db"
 OUT="test_results.txt"
 
